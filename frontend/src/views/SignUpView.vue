@@ -24,7 +24,7 @@
         </form>
         <div id="toLogin">
           <span id="haveAccount">已有账号? </span>
-          <router-link id="login" to="/login">登录</router-link>
+          <router-link id="login" to="/">登录</router-link>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
         </form>
         <div id="toLogin">
           <span id="haveAccount">已有账号? </span>
-          <router-link id="login" to="/login">登录</router-link>
+          <router-link id="login" to="/">登录</router-link>
         </div>
       </div>
     </div>

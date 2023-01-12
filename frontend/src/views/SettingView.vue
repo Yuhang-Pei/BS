@@ -80,7 +80,7 @@ export default {
       let cookies = this.$cookies.keys();
       for (let cookie of cookies)
         this.$cookies.remove(cookie);
-      this.$router.push('/login');
+      this.$router.push('/');
     },
     scenarioDetail(scenario_id) {
       this.$router.push({

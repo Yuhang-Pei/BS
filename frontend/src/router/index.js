@@ -19,15 +19,20 @@ import scenarioDetailView from "@/views/scenarioDetailView.vue";
 
 const routes = [
   {
+    path: '/',
+    name: 'login',
+    component: LogInView
+  },
+  {
     path: '/signup',
     name: 'signup',
     component: SignUpView
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: LogInView
-  },
+  // {
+  //   path: '/login',
+  //   name: 'login',
+  //   component: LogInView
+  // },
   {
     path: '/home',
     name: 'home',

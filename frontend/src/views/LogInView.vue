@@ -82,6 +82,10 @@ export default {
       // error_code = 4: error password
     }
   },
+  created() {
+    if (this.$cookies.get('user_id') !== null)
+      this.$router.push('/home');
+  },
   methods: {
     async initializeCookies(res) {
       // set the cookies of user information
