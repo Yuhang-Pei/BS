@@ -6,6 +6,8 @@ from src.util import state
 from src.db import db
 from simulation import simulate_sensor
 
+from interface import connect_sensor_int, change_sensor_state_int
+
 sensor = Blueprint('sensor', __name__)
 
 
@@ -66,6 +68,7 @@ def change_sensor_state():
         sensor_state = sensor_data['sensor_state']
 
         # close the sensor
+        change_sensor_state_int()
         if sensor_state:
             temperature = None
             humidity = None
@@ -182,6 +185,8 @@ def add_sensor():
     try:
         sensor_data = json.loads(request.get_data())
         room_id = sensor_data['room_id']
+
+        connect_sensor_int()
         db_session.execute(
             'insert into device(device_name, device_type ,room_id) '
             'values (\'传感器\', 2, %s)'

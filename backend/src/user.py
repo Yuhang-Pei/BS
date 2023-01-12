@@ -3,7 +3,6 @@ from sqlalchemy.orm import sessionmaker
 import json
 
 from src.db import db
-from src.models import User
 from src.util import state
 
 user = Blueprint('user', __name__)

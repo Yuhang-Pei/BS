@@ -4,6 +4,7 @@ import json
 
 from src.util import state
 from src.db import db
+from interface import connect_lock_int, change_lock_state_int
 
 
 lock = Blueprint('lock', __name__)
@@ -63,6 +64,7 @@ def change_lock_state():
         lock_id = lock_data['lock_id']
         lock_state = lock_data['lock_state']
 
+        change_lock_state_int()
         db_session.execute(
             'update `lock` set `lock`.lock_state = %s '
             'where `lock`.lock_id = %s'
@@ -111,6 +113,7 @@ def add_lock():
     try:
         lock_data = json.loads(request.get_data())
         room_id = lock_data['room_id']
+        connect_lock_int()
         db_session.execute(
             'insert into device(device_name, device_type ,room_id) '
             'values (\'锁\', 1, %s)'

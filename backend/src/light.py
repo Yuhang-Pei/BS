@@ -4,7 +4,7 @@ import json
 
 from src.util import state
 from src.db import db
-from src.models import Light
+from interface import connect_light_int, change_light_state_int, change_light_luminance_int
 
 light = Blueprint('light', __name__)
 
@@ -69,6 +69,7 @@ def change_light_state():
         light_id = light_data['light_id']
         light_state = light_data['light_state']
 
+        change_light_state_int()
         db_session.execute(
             'update light set light.light_state = %s '
             'where light.light_id = %s'
@@ -95,6 +96,7 @@ def change_light_luminance():
         light_id = light_data['light_id']
         luminance = light_data['luminance']
 
+        change_light_luminance_int()
         db_session.execute(
             'update light set light.luminance = %s '
             'where light.light_id = %s'
@@ -143,6 +145,7 @@ def add_light():
     try:
         light_data = json.loads(request.get_data())
         room_id = light_data['room_id']
+        connect_light_int()
         db_session.execute(
             'insert into device(device_name, device_type ,room_id) '
             'values (\'灯\', 0, %s)'

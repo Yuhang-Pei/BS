@@ -4,6 +4,7 @@ import json
 
 from src.util import state
 from src.db import db
+from interface import connect_switch_int, change_switch_state_int
 
 switch = Blueprint('switch', __name__)
 
@@ -60,6 +61,7 @@ def change_switch_state():
         switch_id = switch_data['switch_id']
         switch_state = switch_data['switch_state']
 
+        change_switch_state_int()
         db_session.execute(
             'update `switch` set `switch`.switch_state = %s '
             'where `switch`.switch_id = %s'
@@ -108,6 +110,8 @@ def add_switch():
     try:
         switch_data = json.loads(request.get_data())
         room_id = switch_data['room_id']
+
+        connect_switch_int()
         db_session.execute(
             'insert into device(device_name, device_type ,room_id) '
             'values (\'开关\', 3, %s)'
