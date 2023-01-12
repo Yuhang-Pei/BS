@@ -1,0 +1,25 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@types/fabric": "^4.5.12",
+    "ant-design-vue": "next",
+    "axios": "^1.2.0",
+    "core-js": "^3.8.3",
+    "fabric": "^5.2.4",
+    "vue": "^3.2.13",
+    "vue-cookie": "^1.1.4",
+    "vue-cookies": "^1.8.2",
+    "vue-router": "^4.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0"
+  }
+}
